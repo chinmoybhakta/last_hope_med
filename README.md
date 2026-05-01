@@ -11,7 +11,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
 
 <p align="center">
-  <img src="assets/icon.png" alt="Qwen-MediCare-BD Logo" width="150"/>
+  <img src="assets\logo\medAILogo.jpg" alt="Qwen-MediCare-BD Logo" width="150"/>
 </p>
 
 > **স্বাস্থ্য আপনার হাতের মুঠোয়** *(Health in Your Hands)*
@@ -61,25 +61,60 @@ Built by fine-tuning **Qwen2.5-3B-Instruct** on 30,523 medical question-answer p
 
 ---
 
-## 📸 Screenshots
+## 🏗 Architecture
+┌──────────────────────────────────────────────────────────────┐
+│ FLUTTER MOBILE APP │
+├──────────────────────────────────────────────────────────────┤
+│ Splash → Onboarding → Home → Chat │
+│ (Model Check) (Download) (Conversations) (Q&A) │
+├──────────────────────────────────────────────────────────────┤
+│ CORE SERVICES │
+├──────────────────────────────────────────────────────────────┤
+│ LlamaService TranslationService HiveService │
+│ (LLM Inference) (Google ML Kit) (Chat Storage) │
+├──────────────────────────────────────────────────────────────┤
+│ FLUTTER FRAMEWORK │
+│ Riverpod (State) llama_flutter_android google_mlkit │
+├──────────────────────────────────────────────────────────────┤
+│ ANDROID NATIVE │
+│ llama.cpp (GGUF) ML Kit Translate Hive DB │
+└──────────────────────────────────────────────────────────────┘
 
-<p align="center">
-  <table>
-    <tr>
-      <td align="center"><b>Splash</b></td>
-      <td align="center"><b>Onboarding</b></td>
-      <td align="center"><b>Chat (English)</b></td>
-      <td align="center"><b>Chat (Bangla)</b></td>
-    </tr>
-    <tr>
-      <td><img src="screenshots/splash.png" width="180"/></td>
-      <td><img src="screenshots/onboarding.png" width="180"/></td>
-      <td><img src="screenshots/chat_en.png" width="180"/></td>
-      <td><img src="screenshots/chat_bn.png" width="180"/></td>
-    </tr>
-  </table>
-</p>
+┌──────────────────────────────────────────────────────────────┐
+│ TRAINING PIPELINE │
+├──────────────────────────────────────────────────────────────┤
+│ Dataset → Preprocessing → QLoRA Fine-tuning → Merge → GGUF │
+│ (JSONL) (ChatML) (Unsloth/Qwen) (FP16) (Q4_K_M)│
+└──────────────────────────────────────────────────────────────┘
+
+
+### Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Mobile Framework** | Flutter 3.38+ |
+| **State Management** | Riverpod |
+| **Local DB** | Hive |
+| **LLM Engine** | llama.cpp (via llama_flutter_android) |
+| **Translation** | Google ML Kit (On-Device) |
+| **Base Model** | Qwen2.5-3B-Instruct |
+| **Fine-Tuning** | Unsloth + QLoRA (4-bit) |
+| **GPU (Training)** | NVIDIA RTX 5080 Laptop (16GB VRAM) |
+| **Quantization** | GGUF Q4_K_M |
 
 ---
 
-## 🏗 Architecture
+## 🧠 Model Details
+
+| Property | Value |
+|----------|-------|
+| **Base Model** | Qwen2.5-3B-Instruct |
+| **Fine-Tuning Method** | QLoRA (4-bit) with Unsloth |
+| **Training Examples** | 30,523 |
+| **Epochs** | 3 |
+| **Learning Rate** | 2e-4 |
+| **LoRA Rank** | 16 |
+| **Quantization** | Q4_K_M (GGUF) |
+| **Model Size (GGUF)** | 1.8 GB |
+| **Context Length** | 2048 tokens |
+| **Languages** | English (primary), Bangla (via translation) |

@@ -22,28 +22,6 @@ Built by fine-tuning **Qwen2.5-3B-Instruct** on 30,523 medical question-answer p
 
 ---
 
-## 📑 Table of Contents
-
-- [✨ Features](#-features)
-- [📸 Screenshots](#-screenshots)
-- [🏗 Architecture](#-architecture)
-- [🧠 Model Details](#-model-details)
-- [📱 Mobile App](#-mobile-app)
-- [🚀 Getting Started](#-getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation (Mobile App)](#installation-mobile-app)
-  - [Training (Optional)](#training-optional)
-- [📊 Dataset](#-dataset)
-- [🔄 Pipeline Overview](#-pipeline-overview)
-- [📁 Project Structure](#-project-structure)
-- [🔒 Privacy & Security](#-privacy--security)
-- [⚕️ Medical Disclaimer](#%EF%B8%8F-medical-disclaimer)
-- [📜 License](#-license)
-- [🙏 Acknowledgments](#-acknowledgments)
-- [📞 Contact](#-contact)
-
----
-
 ## ✨ Features
 
 | Feature | Description |

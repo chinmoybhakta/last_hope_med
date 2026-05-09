@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Soumen Biswas/AppData/Local/Pub/Cache/hosted/pub.dev/llama_flutter_android-0.1.4/android/**)",
+      "Read(//c/Users/Soumen Biswas/AppData/Local/Pub/Cache/hosted/pub.dev/llama_flutter_android-0.1.4/**)",
+      "Bash(unzip -l \"G:/chini/med_ai_app/last_hope_med_latest/last_hope_med/build/app/outputs/flutter-apk/app-release.apk\")",
+      "Bash(unzip -p \"G:/chini/med_ai_app/last_hope_med_latest/last_hope_med/build/app/outputs/flutter-apk/app-release.apk\" AndroidManifest.xml)",
+      "Bash(unzip -l \"G:/chini/med_ai_app/last_hope_med_latest/last_hope_med/build/app/outputs/flutter-apk/app-debug.apk\")",
+      "Bash(ls -lh \"G:/chini/med_ai_app/last_hope_med_latest/last_hope_med/build/app/outputs/flutter-apk/\"*.apk)",
+      "Bash(grep -E \"\\\\.so$\")",
+      "Bash(flutter --version)"
+    ]
+  }
+}
